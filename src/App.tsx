@@ -1,13 +1,19 @@
-import {GlobalStyle} from "./styles/global"
-
+import { GlobalStyle } from "./styles/global";
+import { Header } from './components/header/index';
+import { Dashboard } from './components/Dashboard/index';
+import { TransitionsTable } './components/TransitionsTable/index';
 
 export function App() {
   return (
     <div className="App">
-     <h2>Word</h2>
-     <GlobalStyle/>
+      <Header />
+      <Dashboard />
+      <TransitionsTable></TransitionsTable>
+      <GlobalStyle />
     </div>
   );
 }
+
+
 
 
