@@ -1,8 +1,15 @@
-import {Container} from "./styles";
+import { useEffect } from "react";
+import { Container } from "./styles";
+import {api} from '../../services/api'
+export function TransitionsTable() {
+    useEffect(() => {
+        api.get('/transactions')
+        .then(response => console.log(response.data))
+    },[] );
 
-export function TransitionsTable(){
-    return(
+    return (
         <Container>
+
             <table>
                 <thead>
                     <tr>
@@ -12,15 +19,24 @@ export function TransitionsTable(){
                         <th>Data</th>
                     </tr>
 
-                    <tbody>
-                        <tr>
-                            <td>Carro</td>
-                            <td>R$ 50000,00</td>
-                            <td>Compra</td>
-                            <td>04/02/2022</td>
-                        </tr>
-                    </tbody>
+
                 </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Carro</td>
+                        <td className="retirada">R$ 50.000,00</td>
+                        <td>Compra</td>
+                        <td>04/02/2022</td>
+                    </tr>
+
+                    <tr>
+                        <td>Celular</td>
+                        <td className="deposit">R$ 1.000,00</td>
+                        <td>Revenda</td>
+                        <td>01/02/2022</td>
+                    </tr>
+                </tbody>
             </table>
         </Container>
     )
