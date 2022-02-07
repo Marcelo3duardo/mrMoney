@@ -2,6 +2,7 @@ import { GlobalStyle } from "./styles/global";
 import { Header } from './components/header/index';
 import { Dashboard } from './components/Dashboard/index';
 import { TransitionsTable } from './components/TransitionsTable/index';
+import { NewTransactionModal } from './components/NewTransactionModal/index';
 
 import Modal from 'react-modal';
 import { useState } from "react";
@@ -12,27 +13,22 @@ export function App() {
 
   const [isNewTransitionModalOpen, setIsNewTransitionModalOpen] = useState(false);
 
-    function handleOpenNewTransitionModal() {
-        setIsNewTransitionModalOpen(true);
-    }
+  function handleOpenNewTransitionModal() {
+    setIsNewTransitionModalOpen(true);
+  }
 
-    function handleCloseNewTransitionModal() {
-        setIsNewTransitionModalOpen(false);
-    }
+  function handleCloseNewTransitionModal() {
+    setIsNewTransitionModalOpen(false);
+  }
 
   return (
     <div className="App">
-      <Header onOpenNewTransactionModal={handleOpenNewTransitionModal}/>
+      <Header onOpenNewTransactionModal={handleOpenNewTransitionModal} />
       <Dashboard />
-
-      <Modal
-        isOpen={isNewTransitionModalOpen}
-        onRequestClose={handleCloseNewTransitionModal}
-      >
-        <h2>conteúdo modal </h2>
-
-      </Modal>
-
+      <NewTransactionModal 
+      isOpen={isNewTransitionModalOpen}
+      onRequestClose={handleCloseNewTransitionModal}
+      />
       <TransitionsTable />
       <GlobalStyle />
     </div>
